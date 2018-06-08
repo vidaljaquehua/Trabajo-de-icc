@@ -1,2 +1,0 @@
-# Trabajo-de-icc
-Ahorcados
