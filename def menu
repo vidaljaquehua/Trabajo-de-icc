@@ -1,0 +1,10 @@
+#menu
+def menu():
+    print "1 PLAYER "
+    print "2 PLAYERS"
+    player= int(input("Player:"))
+    while(True):
+        if player==1:
+            player_1()
+        elif player==2:
+            player_2()
