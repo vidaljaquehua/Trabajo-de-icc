@@ -8,3 +8,7 @@ def menu():
             player_1()
         elif player==2:
             player_2()
+#palabra secrete de un jugador
+#colocando la palabra secreta 2 jugadores
+#intentos y temporizador
+#imagen
