@@ -1,0 +1,44 @@
+def verificando(tuletra): #identificando si es una letra
+    cantidad= len(tuletra)
+    if cantidad>1:
+        print "eso no es una letra, sanazo, una vida menos pa' ti."
+        return
+    else:
+        tuletra.lower()
+    return
+def verificandopalabrasecreta(palabrasecretareal): #identificando si la palabra secreta ingresada tiene un numero
+    numero=('0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','-','_','=','+','`','~',' ','[','{',']','}','|',':',';',"'",'<',',','.','>','/','?')
+    for contador in range (0,41):
+        if numero[contador]in palabrasecretareal:
+            print 'comando inacceptable'
+            return False
+
+def jugar():
+    palabrasecreta = raw_input("ingresa la palabra secreta: ")
+    while verificandopalabrasecreta(palabrasecreta)== False:
+        palabrasecreta = raw_input("ingresa la palabra secreta: ")
+    else:
+        palabrasecretareal = palabrasecreta.lower()
+    vidas = 5
+    for num  in range (100): #limpiar la patalla
+        print
+    while vidas > 0:
+        # adivinando las letras
+        tuletra_2 = raw_input("introduce una letra: ")
+        tuletra= tuletra_2.lower()
+        verificando(tuletra)
+        for letra in palabrasecretareal:  # si es falso solo imprimira _
+            if tuletra in letra:
+                print letra
+            else:
+                print "_"
+        if tuletra not in palabrasecretareal:
+            vidas -= 1
+            print "error"
+            print "tu tienes", vidas, "vidas"
+        if vidas == 0:
+            print "perdiste"
+    else:
+        print "gracias por jugar"
+
+jugar()
