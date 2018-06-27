@@ -12,7 +12,56 @@ def verificandopalabrasecreta(palabrasecretareal): #identificando si la palabra 
         if numero[contador]in palabrasecretareal:
             print 'comando inacceptable'
             return False
-
+ahorcado_dibujo = ['''
+      +---+
+      |   |
+          |
+          |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+          |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+      |   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     /    |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     / \  |
+          |
+    =========''']
 def jugar():
     palabrasecreta = raw_input("ingresa la palabra secreta: ")
     while verificandopalabrasecreta(palabrasecreta)== False:
@@ -42,3 +91,4 @@ def jugar():
         print "gracias por jugar"
 
 jugar()
+
