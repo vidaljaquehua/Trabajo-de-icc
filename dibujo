@@ -1,0 +1,65 @@
+def dibujo(vida):
+    ahorcado = ['''
+          +---+
+          |   |
+              |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+          |   |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|   |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         /    |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         / \  |
+              |
+        =========''']
+    if vida ==6:
+        print ahorcado [0]
+    elif vida ==5:
+        print ahorcado[1]
+    elif vida == 4:
+        print ahorcado[2]
+    elif vida == 3:
+        print ahorcado[3]
+    elif vida == 2:
+        print ahorcado[4]
+    elif vida == 1:
+        print ahorcado[5]
+    elif vida == 0:
+        print ahorcado[6]
