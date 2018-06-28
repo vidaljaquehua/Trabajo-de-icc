@@ -1,0 +1,132 @@
+import random
+
+#list of words for game
+hangmanWords = ("Halloween","Hockey","Minnesota","Vikings","Twins","Timberwolves","Wild","Playstation","Achievement","Minecraft","Metallica","Portal","Xbox","Guitar")
+
+#randomizes the word chosen for game
+index = random.randint(0,len(hangmanWords)-1)
+
+#assigns radomized word to variable
+randomWord = hangmanWords[index]
+
+
+'''
+menu function, provides user with choices for game, user chooses via imput
+'''
+def menu():
+   print("""
+Welcome to Hangman!
+
+Select a difficulty:
+1. Easy (9 Misses)
+2. Medium (7 Misses)
+3. Advanced (5 Misses)
+
+4. Exit Game
+""")
+   selection = int(input("What difficulty do you pick (1-4)?: "))
+   return selection
+
+'''
+the function for easy mode, prints the word chosen by randomizer
+asks the player to enter a letter that they guess is in the word
+player gets 9 guesses to figure out word, correct guesses don't
+count, returns player to main menu when they lose
+'''
+def easyMode():
+   wrongGuesses = 0
+   listOfGuesses = []
+   print(randomWord)
+   while(wrongGuesses != 9):
+      x = raw_input("Enter a letter: ")
+      if x.lower() in randomWord.lower():
+         print(x,"is in the word!")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+      else:
+         print(x,"is not in the word.")
+         wrongGuesses += 1
+         print(wrongGuesses, "wrong guesses.")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+
+   print("You lost the game!")
+   return
+
+'''
+the function for medium mode, prints the word chosen by randomizer
+asks the player to enter a letter that they guess is in the word
+player gets 7 guesses to figure out word, correct guesses don't
+count, returns player to main menu when they lose
+'''
+def medium():
+   wrongGuesses = 0
+   listOfGuesses = []
+   print(randomWord)
+   while(wrongGuesses != 7):
+      x = raw_input("Enter a letter: ")
+      if x.lower() in randomWord.lower():
+         print(x,"is in the word!")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+      else:
+         print(x,"is not in the word.")
+         wrongGuesses += 1
+         print(wrongGuesses, "wrong guesses.")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+
+   print("You lost the game!")
+   return
+
+'''
+the function for advanced mode, prints the word chosen by randomizer
+asks the player to enter a letter that they guess is in the word
+player gets 5 guesses to figure out word, correct guesses don't
+count, returns player to main menu when they lose
+'''
+def advanced():
+   wrongGuesses = 0
+   listOfGuesses = []
+   print(randomWord)
+   while(wrongGuesses != 5):
+      x = raw_input("Enter a letter: ")
+      if x.lower() in randomWord.lower():
+         print(x,"is in the word!")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+      else:
+         print(x,"is not in the word.")
+         wrongGuesses += 1
+         print(wrongGuesses, "wrong guesses.")
+         listOfGuesses.append(x)
+         print("Letters guessed so far: ",listOfGuesses)
+         print()
+
+   print("You lost the game!")
+   return
+
+'''
+main function, deals with what happens depending on
+what the player selected on the menu
+'''
+def main():
+   select = menu()
+   while(select != 4):
+      if(select == 1):
+         easyMode()
+      elif(select == 2):
+         medium()
+      elif(select == 3):
+         advanced()
+
+      select = menu()
+
+   print("You don't want to play today? :'(")
+
+main()
