@@ -13,15 +13,15 @@ def verificando(tuletra): #identificando si es una letra
     else:
         tuletra.lower()
     return
-def jugador1():
+def easymode():
     lista_palabra = []
     incognito = []
-    vidas = 5
+    vidas = 7
     letra = ''
 
-    words = ("Halloween", "Hockey", "Minnesota", "Vikings", "Twins", "Timberwolves", "Wild", "Playstation", "Achievement","Minecraft", "Metallica", "Portal", "Xbox", "Guitar")
+    words = ("acido", "aeropuerto", "alarma", "alegria", "bote", "cafe", "camping", "canoa", "curva","lago", "mesa", "misil", "postre", "radio")
     posicion = random.randint(0, len(words) - 1)
-    palabra = words[1].lower()
+    palabra = words[posicion].lower()
 
     # Separamos la palabra en letras y lo colocamos en una lista
 
@@ -48,6 +48,7 @@ def jugador1():
             print 'error!!!!'
             if vidas == 0: #verificando si ya no tienes vidas
                 print 'Has perdido'
+                print palabra
                 break
 
         else:
@@ -65,4 +66,109 @@ def jugador1():
             break
 
     return
-jugador1()
+def medium():
+    lista_palabra = []
+    incognito = []
+    vidas = 5
+    letra = ''
+
+    words = ("antibiotico", "arabe", "tunica", "ceramica", "oxigeno", "humanistico", "caoticos", "recondito", "zodiaco","rectangulo", "sepalo", "inequivoco", "obstaculo", "heterogeneo")
+    posicion = random.randint(0, len(words) - 1)
+    palabra = words[posicion].lower()
+
+    # Separamos la palabra en letras y lo colocamos en una lista
+
+    lista_palabra = list(palabra)
+    for item in lista_palabra:
+        incognito.append('_')
+
+    while True:
+        # Mostramos la palabra a adivinar
+
+        print incognito
+
+        # Pedimos una letra
+
+        letrafake = raw_input('Dame una letra: ')
+        letra=letrafake.lower()
+        verificando(letra)
+
+        # Comprueba si se ha equivocado
+
+        if letra not in lista_palabra:
+            # fallas
+            vidas = vidas- 1
+            print 'error!!!!'
+            if vidas == 0: #verificando si ya no tienes vidas
+                print 'Has perdido'
+                print palabra
+                break
+
+        else:
+            #Adivinado, sustituimos
+
+            for pos,valor in enumerate(lista_palabra):
+                if valor == letra:
+                    incognito[pos] = valor #reemplazando el incognito por la palabra encontrada
+
+        ## Comprueba si ha terminado la partida
+
+        if lista_palabra == incognito:  # verifica si has ganado
+            print palabra
+            print 'Has ganado'
+            break
+
+    return
+def difficult():
+    lista_palabra = []
+    incognito = []
+    vidas = 3
+    letra = ''
+
+    words = ("Desoxirribonucleico", "Hipopotomonstrosesquipedaliofobia", "Electrodomestico", "Paralelepipedo", "Metilendioximetanfetamina", "tu", "te", "yo", "Electrocardiograma")
+    posicion = random.randint(0, len(words) - 1)
+    palabra = words[posicion].lower()
+
+    # Separamos la palabra en letras y lo colocamos en una lista
+
+    lista_palabra = list(palabra)
+    for item in lista_palabra:
+        incognito.append('_')
+
+    while True:
+        # Mostramos la palabra a adivinar
+
+        print incognito
+
+        # Pedimos una letra
+
+        letrafake = raw_input('Dame una letra: ')
+        letra=letrafake.lower()
+        verificando(letra)
+
+        # Comprueba si se ha equivocado
+
+        if letra not in lista_palabra:
+            # fallas
+            vidas = vidas- 1
+            print 'error!!!!'
+            if vidas == 0: #verificando si ya no tienes vidas
+                print 'Has perdido'
+                print palabra
+                break
+
+        else:
+            #Adivinado, sustituimos
+
+            for pos,valor in enumerate(lista_palabra):
+                if valor == letra:
+                    incognito[pos] = valor #reemplazando el incognito por la palabra encontrada
+
+        ## Comprueba si ha terminado la partida
+
+        if lista_palabra == incognito:  # verifica si has ganado
+            print palabra
+            print 'Has ganado'
+            break
+
+    return
