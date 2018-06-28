@@ -1,0 +1,66 @@
+import random
+def verificando(tuletra): #identificando si es una letra
+    cantidad= len(tuletra)
+    numero = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '`', '~', ' ', '[', '{', ']', '}', '|', ':', ';', "'", '<', ',', '.', '>', '/', '?')
+    if cantidad>1:
+        print "eso no es una letra, sanazo, una vida menos pa' ti."
+        return
+    elif tuletra in numero:
+        print "eso no es una letra, sanazo, una vida menos pa' ti."
+        return
+    else:
+        tuletra.lower()
+    return
+def jugador1():
+    lista_palabra = []
+    incognito = []
+    errores = 0
+    letra = ''
+
+    words = ("Halloween", "Hockey", "Minnesota", "Vikings", "Twins", "Timberwolves", "Wild", "Playstation", "Achievement","Minecraft", "Metallica", "Portal", "Xbox", "Guitar")
+    posicion = random.randint(0, len(words) - 1)
+    palabra = words[1].lower()
+
+    # Separamos la palabra en letras y lo colocamos en una lista
+
+    lista_palabra = list(palabra)
+    for item in lista_palabra:
+        incognito.append('_')
+
+    while True:
+        # Mostramos la palabra a adivinar
+
+        print incognito
+
+        # Pedimos una letra
+
+        letrafake = raw_input('Dame una letra: ')
+        letra=letrafake.lower()
+        verificando(letra)
+
+        # Comprueba si se ha equivocado
+
+        if letra not in lista_palabra:
+            # fallas
+            intentos = errores + 1
+            print 'error!!!!'
+
+        else:
+            #Adivinado, sustituimos
+
+            for pos,valor in enumerate(lista_palabra):
+                if valor == letra:
+                    incognito[pos] = valor #reemplazando el incognito por la palabra encontrada
+
+        ## Comprueba si ha terminado la partida
+
+        if errores >= 5:
+
+            print 'Has perdido'
+
+            break
+        elif lista_palabra == incognito:
+            print 'Has ganado'
+            break
+    return
+jugador1()
