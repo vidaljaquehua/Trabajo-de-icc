@@ -46,12 +46,10 @@ def jugador1():
             # fallas
             vidas = vidas- 1
             print 'error!!!!'
-            if vidas == 0:
+            if vidas == 0: #verificando si ya no tienes vidas
                 print 'Has perdido'
                 break
-            elif lista_palabra == incognito:
-                print 'Has ganado'
-                break
+
         else:
             #Adivinado, sustituimos
 
@@ -61,6 +59,10 @@ def jugador1():
 
         ## Comprueba si ha terminado la partida
 
+        if lista_palabra == incognito:  # verifica si has ganado
+            print palabra
+            print 'Has ganado'
+            break
 
     return
 jugador1()
