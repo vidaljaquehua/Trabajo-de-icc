@@ -1,0 +1,11 @@
+import time as t
+inicio= t.time()
+r=int(input('ingresar'))
+final=t.time()
+tiempo= round(final-inicio,0)
+if tiempo > 5.0 :
+    print "sos una zorra"
+    print tiempo
+else:
+    print tiempo
+    print "que rapida"
