@@ -1,0 +1,30 @@
+def menu():
+    print("""
+AHORCADOS
+
+SELECCIONA UNA DE LAS OPCIONES:
+1. Un jugador
+2. Dos jugadores
+3. Tres o mas jugadores
+
+    """)
+    selection = int(input("OPCION: "))
+
+    return selection
+
+
+def main():
+   select = menu()
+   while(select != 4):
+      if(select == 1):
+         print 'jugador 1' #se dirige a la funcion de un jugador
+      elif(select == 2):
+         print 'jugador 2' # se dirige a la funcion de dos jugadores
+      elif(select==3):
+          print'jugador 3' # se dirige a la funcion de tres a mas jugadores
+
+      select = menu()
+
+   print("Fuera de aca, esto no es apto para sanazos")
+
+main()
