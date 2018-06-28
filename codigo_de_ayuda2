@@ -1,0 +1,39 @@
+import random
+def player_1():
+    words = ("Halloween", "Hockey", "Minnesota", "Vikings", "Twins", "Timberwolves", "Wild", "Playstation", "Achievement","Minecraft", "Metallica", "Portal", "Xbox", "Guitar")
+    posicion = random.randint(0, len(words) - 1)
+    palabra = words[1]
+    listapalabra=[]
+    listapalabra=list(palabra)
+    adivinados=[]
+    for item in listapalabra:
+        adivinados.append ("_")
+    errores = 0
+    while True:
+        print adivinados
+        letra = raw_input("ingresa una letra: ")
+        if letra not in listapalabra:
+            ## Ha fallado
+            errores = errores +1
+            print 'Has fallado!!!!'
+        else:
+            ## Adivinado, sustituimos
+
+            for pos, valor in enumerate(listapalabra):
+                if valor == letra:
+                    listapalabra[pos] = valor
+
+            ## Comprueba si ha terminado la partida
+
+            ### Se le acaban los intentos
+
+        if errores == 5:
+
+            print 'Has perdido'
+
+            break
+        elif listapalabra == adivinados:
+            print'Has ganado'
+
+            break
+player_1()
