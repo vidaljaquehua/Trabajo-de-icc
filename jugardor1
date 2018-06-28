@@ -1,6 +1,146 @@
 
 import random
-
+def dibujo(vida):
+    ahorcado = ['''
+          +---+
+          |   |
+              |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+          |   |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|   |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         /    |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         / \  |
+              |
+        =========''']
+    if vida ==6:
+        print ahorcado [0]
+    elif vida ==5:
+        print ahorcado[1]
+    elif vida == 4:
+        print ahorcado[2]
+    elif vida == 3:
+        print ahorcado[3]
+    elif vida == 2:
+        print ahorcado[4]
+    elif vida == 1:
+        print ahorcado[5]
+    elif vida == 0:
+        print ahorcado[6]
+def dibujomedium(vida):
+    ahorcado = ['''
+          +---+
+          |   |
+              |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+              |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+          |   |
+              |
+              |
+        =========''', '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+              |
+              |
+        =========''',  '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         / \  |
+              |
+        =========''']
+    if vida ==4:
+        print ahorcado [0]
+    elif vida ==3:
+        print ahorcado[1]
+    elif vida == 2:
+        print ahorcado[2]
+    elif vida == 1:
+        print ahorcado[3]
+    elif vida == 0:
+        print ahorcado[4]
+def dibujoadvance(vida):
+    ahorcado = ['''
+          +---+
+          |   |
+              |
+              |
+              |
+              |
+        =========''',  '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+              |
+              |
+        =========''',  '''
+          +---+
+          |   |
+          O   |
+         /|\  |
+         / \  |
+              |
+        =========''']
+    if vida ==2:
+        print ahorcado [0]
+    elif vida ==1:
+        print ahorcado[1]
+    elif vida == 0:
+        print ahorcado[2]
 def verificando(tuletra): #identificando si es una letra
     cantidad= len(tuletra)
     numero = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '`', '~', ' ', '[', '{', ']', '}', '|', ':', ';', "'", '<', ',', '.', '>', '/', '?')
@@ -18,7 +158,6 @@ def easymode():
     incognito = []
     vidas = 7
     letra = ''
-
     words = ("acido", "aeropuerto", "alarma", "alegria", "bote", "cafe", "camping", "canoa", "curva","lago", "mesa", "misil", "postre", "radio")
     posicion = random.randint(0, len(words) - 1)
     palabra = words[posicion].lower()
@@ -35,16 +174,17 @@ def easymode():
         print incognito
 
         # Pedimos una letra
-
         letrafake = raw_input('Dame una letra: ')
         letra=letrafake.lower()
         verificando(letra)
+
 
         # Comprueba si se ha equivocado
 
         if letra not in lista_palabra:
             # fallas
             vidas = vidas- 1
+            dibujo(vidas) #cambia de dibujo
             print 'error!!!!'
             if vidas == 0: #verificando si ya no tienes vidas
                 print 'Has perdido'
@@ -98,6 +238,7 @@ def medium():
         if letra not in lista_palabra:
             # fallas
             vidas = vidas- 1
+            dibujomedium(vidas)
             print 'error!!!!'
             if vidas == 0: #verificando si ya no tienes vidas
                 print 'Has perdido'
@@ -119,7 +260,7 @@ def medium():
             break
 
     return
-def difficult():
+def advance():
     lista_palabra = []
     incognito = []
     vidas = 3
@@ -151,6 +292,7 @@ def difficult():
         if letra not in lista_palabra:
             # fallas
             vidas = vidas- 1
+            dibujoadvance(vidas)
             print 'error!!!!'
             if vidas == 0: #verificando si ya no tienes vidas
                 print 'Has perdido'
